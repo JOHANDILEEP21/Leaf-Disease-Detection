@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 from models import leaf_disease_detection
 
-st.set_page_config(page_title='NeubAltics - Assignment')
+st.set_page_config(page_title='NeubAltics - Dileepkumar Assignment')
 st.title('NeubAltics - Assignment Submission')
 
 upload_file = st.file_uploader('Upload the Image (JPG) File', type={'JPG'})
