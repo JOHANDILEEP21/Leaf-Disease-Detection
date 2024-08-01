@@ -36,7 +36,16 @@ class leaf_disease_detection:
         # ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
         
         # Later, load the model
-        ldd_model = load_model('model.h5')
+        # ldd_model = load_model('model.h5')
+
+        try:
+            # Try loading the model using the HDF5 format
+            ldd_model = load_model('Leaf_disease_detection.h5')
+        except Exception as e:
+            print("Error loading the model with HDF5:")
+            traceback.print_exc()
+            return None
+            
         # ldd_model.summary()
 
         test_image = image.load_img(path, target_size=(128,128))
@@ -45,7 +54,14 @@ class leaf_disease_detection:
 
         test_image = np.expand_dims(test_image, axis=0)
 
-        result = ldd_model.predict(test_image)
+        if ldd_model:
+            # Assuming test_image is defined and preprocessed correctly
+            result = ldd_model.predict(test_image)
+            return result
+        else:
+            st.error("Model could not be loaded.")
+            return None
+        # result = ldd_model.predict(test_image)
 
         #print(f"Result is --> {result}")
         fresult = np.max(result)
@@ -65,4 +81,7 @@ class leaf_disease_detection:
 
         label2 = label[result.argmax()]
 
-        st.warning(f"your leaf disease is --> {label2}")
+        if result is not None:
+            st.success(f"your leaf disease is --> {label2}")
+        else:
+            st.warning("Failed to get a prediction due to model loading issues.")
