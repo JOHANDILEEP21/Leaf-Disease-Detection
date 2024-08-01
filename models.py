@@ -40,7 +40,7 @@ class leaf_disease_detection:
 
         try:
             # Try loading the model using the HDF5 format
-            ldd_model = load_model('Leaf_disease_detection.h5')
+            ldd_model = load_model('model.h5')
         except Exception as e:
             print("Error loading the model with HDF5:")
             traceback.print_exc()
