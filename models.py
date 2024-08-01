@@ -31,7 +31,7 @@ class leaf_disease_detection:
     #path=input("Enter your image path-: ")
     def testing(path):
         
-        ldd_model = pickle.load(open('https://github.com/JOHANDILEEP21/Leaf-Disease-Detection/blob/main/Leaf_disease_detection.pkl', 'rb'))
+        ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
 
         # ldd_model.summary()
 
