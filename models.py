@@ -17,6 +17,7 @@ from keras.preprocessing import image
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from tensorflow.keras.applications import VGG16
+import tensorflow as tf
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
@@ -40,7 +41,7 @@ class leaf_disease_detection:
 
         try:
             # Try loading the model using the HDF5 format
-            ldd_model = load_model('model.h5')
+            ldd_model = tf.keras.models.load_model('model.h5')
         except Exception as e:
             print("Error loading the model with HDF5:")
             traceback.print_exc()
