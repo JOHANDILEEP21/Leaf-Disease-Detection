@@ -20,6 +20,7 @@ from tensorflow.keras.applications import VGG16
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
 
+import traceback
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -31,7 +32,12 @@ class leaf_disease_detection:
     #path=input("Enter your image path-: ")
     def testing(path):
         
-        ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
+        #ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
+        try:
+            ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
+        except Exception as e:
+            print("Error loading the model:")
+            traceback.print_exc()
 
         # ldd_model.summary()
 
