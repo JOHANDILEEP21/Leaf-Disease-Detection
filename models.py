@@ -9,6 +9,7 @@ import pickle
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from keras.models import load_model
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, BatchNormalization, Dropout
 from keras.models import Sequential
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -33,11 +34,10 @@ class leaf_disease_detection:
     def testing(path):
         
         #ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
-        try:
-            ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
-        except Exception as e:
-            print("Error loading the model:")
-            traceback.print_exc()
+        
+        # Later, load the model
+        ldd_model = load_model('models.h5')
+
 
         # ldd_model.summary()
 
