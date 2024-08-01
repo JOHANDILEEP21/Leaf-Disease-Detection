@@ -9,13 +9,15 @@ st.title('NeubAltics - Dileepkumar Assignment Submission')
 
 upload_file = st.file_uploader('Upload the Image (JPG) File', type={'JPG'})
 
+path = upload_file
+
 if upload_file is not None:
     #text = upload_file.getvalue() #.decode("utf-8")
     st.success("Successfully Uploaded")
     
-    st.image(upload_file)
+    st.image(path)
     
-    leaf_disease_detection.testing(upload_file)
+    leaf_disease_detection.testing(path)
 
 else:
     st.warning('Please upload the JPG file')
