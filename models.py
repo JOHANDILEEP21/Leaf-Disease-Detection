@@ -29,8 +29,8 @@ class LeafDiseaseDetection:
                 ldd_model = pickle.load(file)
         except Exception as e:
             # st.error(f"Error loading the model: {e}")
-            print(f"Error loading the model: {e}")
-            return None
+            # print(f"Error loading the model: {e}")
+            return e
             
         test_image = image.load_img(image_path, target_size=(128, 128))
         test_image = image.img_to_array(test_image)
