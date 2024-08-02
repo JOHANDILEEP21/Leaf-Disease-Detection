@@ -9,23 +9,17 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, BatchNormalizatio
 from keras.models import Sequential
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
-import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from tensorflow.keras.applications import VGG16
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import warnings
-
 warnings.filterwarnings('ignore')
 
 class LeafDiseaseDetection:
-    
-    @staticmethod
     def testing(path):
-        
         model = tf.keras.models.load_model("trained_model.keras")
-        
         test_image = image.load_img(path, target_size=(128, 128))
         test_image = image.img_to_array(test_image)
         test_image = np.expand_dims(test_image, axis=0)
@@ -45,7 +39,6 @@ class LeafDiseaseDetection:
                   'Tomato___Tomato_mosaic_virus', 'Tomato___Tomato_Yellow_Leaf_Curl_Virus']
         
         predicted_label = labels[result.argmax()]
-        
         probability = np.max(result)
         
         if 'healthy' in predicted_label:
@@ -56,17 +49,12 @@ class LeafDiseaseDetection:
 # Streamlit app
 def main():
     st.title("Leaf Disease Detection")
-
     # File uploader
     upload_file = st.file_uploader("Choose a leaf image...", type="jpg")
-
     if upload_file is not None:
-        
         #resize_image = image.load_img(upload_image, target_size=(240, 320))
         st.image(upload_file, caption='Uploaded Image.', width= 240) #, use_column_width=True)
-
         LeafDiseaseDetection.testing(upload_file)
-        
 
 if __name__ == "__main__":
     main()
