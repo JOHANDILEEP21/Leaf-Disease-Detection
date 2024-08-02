@@ -34,14 +34,13 @@ class leaf_disease_detection:
     #path=input("Enter your image path-: ")
     def testing(path):
         model_path = 'model.h5'
-        # ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
-        
         # Later, load the model
         # ldd_model = load_model(model_path)
 
         try:
             # Try loading the model using the HDF5 format
-            ldd_model = tf.keras.models.load_model('model.h5')
+            # ldd_model = tf.keras.models.load_model('model.h5')
+            ldd_model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
         except Exception as e:
             print("Error loading the model with HDF5:")
             # traceback.print_exc()
