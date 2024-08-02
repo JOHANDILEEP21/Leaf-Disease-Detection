@@ -21,8 +21,7 @@ warnings.filterwarnings('ignore')
 class LeafDiseaseDetection:
     @staticmethod
     def load_model1():
-        with open('Leaf_disease_detection.pkl', 'rb') as file:
-            model = pickle.load(file)
+        model = pickle.load(open('Leaf_disease_detection.pkl', 'rb'))
         return model
 
     @staticmethod
