@@ -15,19 +15,14 @@ from tensorflow.keras.applications import VGG16
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import warnings
-
 warnings.filterwarnings('ignore')
 
 class LeafDiseaseDetection:
     @staticmethod
     def load_model1():
-        try:
-            with open('Leaf_disease_detection.pkl', 'rb') as file:
-                model = pickle.load(file)
-            return model
-        except Exception as e:
-            st.error(f"Error loading model: {e}")
-            raise
+        with open('Leaf_disease_detection.pkl', 'rb') as file:
+            model = pickle.load(file)
+        return model
 
     @staticmethod
     def predict_image(model, path):
