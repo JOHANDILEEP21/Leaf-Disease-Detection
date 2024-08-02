@@ -8,7 +8,7 @@ class LeafDiseaseDetection:
     def load_model1():
         try:
             with open('https://github.com/JOHANDILEEP21/Leaf-Disease-Detection/blob/main/Leaf_disease_detection.pkl', 'rb') as file:
-            model = pickle.load(file)
+                model = pickle.load(file)
             return model
         except Exception as e:
             st.error(f"Error loading model: {e}")
