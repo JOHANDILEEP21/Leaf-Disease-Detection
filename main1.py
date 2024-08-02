@@ -22,8 +22,7 @@ class LeafDiseaseDetection:
     @staticmethod
     def load_model():
         try:
-            with open('Leaf_disease_detection.pkl', 'rb') as file:
-                model = pickle.load(file)
+            model = load_model('model.h5')
             return model
         except FileNotFoundError:
             st.error("Model file not found.")
