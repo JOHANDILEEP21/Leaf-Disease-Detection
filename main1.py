@@ -23,7 +23,9 @@ class LeafDiseaseDetection:
     @staticmethod
     def load_model():
         try:
-            model = load_model('model.h5')
+            model = VGG16(weights = None)
+            model.load_weights('model.h5')
+            #model = load_model('model.h5')
             return model
         except FileNotFoundError:
             st.error("Model file not found.")
