@@ -9,6 +9,7 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, BatchNormalizatio
 from keras.models import Sequential
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
+import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from tensorflow.keras.applications import VGG16
