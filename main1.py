@@ -7,7 +7,8 @@ class LeafDiseaseDetection:
     @staticmethod
     def load_model1():
         try:
-            model = load_model('model.keras')
+            with open('https://github.com/JOHANDILEEP21/Leaf-Disease-Detection/blob/main/Leaf_disease_detection.pkl', 'rb') as file:
+            model = pickle.load(file)
             return model
         except Exception as e:
             st.error(f"Error loading model: {e}")
