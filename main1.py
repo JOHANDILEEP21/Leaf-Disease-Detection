@@ -46,7 +46,8 @@ class LeafDiseaseDetection:
     @staticmethod
     def testing(path):
         model = LeafDiseaseDetection.load_model()
-        
+        if model is None:
+            return
         result = LeafDiseaseDetection.predict_image(model, path)
         
         labels = ['Apple___Apple_scab', 'Apple___Black_rot', 'Apple___Cedar_apple_rust', 'Apple___healthy',
