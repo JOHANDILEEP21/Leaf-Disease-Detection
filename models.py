@@ -44,7 +44,7 @@ class leaf_disease_detection:
             ldd_model = tf.keras.models.load_model('model.h5')
         except Exception as e:
             print("Error loading the model with HDF5:")
-            traceback.print_exc()
+            # traceback.print_exc()
             return None
             
         # ldd_model.summary()
