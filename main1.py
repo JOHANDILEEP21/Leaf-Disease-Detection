@@ -22,7 +22,7 @@ warnings.filterwarnings('ignore')
 class LeafDiseaseDetection:
     @staticmethod
     def load_model1():
-        model = tf.keras.models.load_model("trained_plant_disease_model.keras")
+        model = tf.keras.models.load_model("trained_model.keras")
         #model = pickle.load(open('trained_model.keras', 'rb'))
         return model
 
