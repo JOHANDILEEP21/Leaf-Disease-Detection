@@ -20,25 +20,16 @@ import warnings
 warnings.filterwarnings('ignore')
 
 class LeafDiseaseDetection:
+    
     @staticmethod
-    def load_model1():
+    def testing(path):
+        
         model = tf.keras.models.load_model("trained_model.keras")
-        #model = pickle.load(open('trained_model.keras', 'rb'))
-        return model
-
-    @staticmethod
-    def predict_image(model, path):
+        
         test_image = image.load_img(path, target_size=(128, 128))
         test_image = image.img_to_array(test_image)
         test_image = np.expand_dims(test_image, axis=0)
         result = model.predict(test_image)
-        return result
-
-    @staticmethod
-    def testing(path):
-        model = LeafDiseaseDetection.load_model1()
-        
-        result = LeafDiseaseDetection.predict_image(model, path)
         
         labels = ['Apple___Apple_scab', 'Apple___Black_rot', 'Apple___Cedar_apple_rust', 'Apple___healthy',
                   'Blueberry___healthy', 'Cherry_(including_sour)___healthy', 'Cherry_(including_sour)___Powdery_mildew',
