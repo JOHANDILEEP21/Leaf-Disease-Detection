@@ -21,7 +21,7 @@ class LeafDiseaseDetection:
     @staticmethod
     def load_model1():
         from tensorflow.keras.models import load_model
-        model = load_model('model.h5')
+        model = load_model('model.keras')
         return model
 
     @staticmethod
