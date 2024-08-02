@@ -49,3 +49,9 @@ The dataset used in this project contains images of healthy and diseased plant l
   
 ### Evaluation:
     - Accuracy
+
+### Deployed Link:
+
+    https://leaf-disease-detection-bjkkwbadsyk7f7pnyscctc.streamlit.app/
+
+
