@@ -52,6 +52,8 @@ The dataset used in this project contains images of healthy and diseased plant l
 
 ### Deployed Link:
 
-    https://leaf-disease-detection-bjkkwbadsyk7f7pnyscctc.streamlit.app/
+https://leaf-disease-detection-bjkkwbadsyk7f7pnyscctc.streamlit.app/
+
+The model works well in my local machine. But not in streamlit app.
 
 
