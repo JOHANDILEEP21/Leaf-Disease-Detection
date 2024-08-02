@@ -20,8 +20,8 @@ warnings.filterwarnings('ignore')
 class LeafDiseaseDetection:
     @staticmethod
     def load_model1():
-        with open('Leaf_disease_detection.pkl', 'rb') as file:
-            model = pickle.load(file)
+        from tensorflow.keras.models import load_model
+        model = load_model('model.h5')
         return model
 
     @staticmethod
