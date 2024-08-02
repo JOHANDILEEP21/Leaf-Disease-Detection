@@ -22,7 +22,7 @@ class LeafDiseaseDetection:
     @staticmethod
     def load_model1():
         try:
-            with open('/mount/src/leaf-disease-detection/path_to_your_model.pkl', 'rb') as file:
+            with open('https://github.com/JOHANDILEEP21/Leaf-Disease-Detection/blob/40749d4bab9ee45631237a320789ef75a977b19e/Leaf_disease_detection.pkl', 'rb') as file:
                 model = pickle.load(file)
             return model
         except Exception as e:
