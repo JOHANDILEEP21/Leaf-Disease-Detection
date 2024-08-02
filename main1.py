@@ -9,7 +9,6 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, BatchNormalizatio
 from keras.models import Sequential
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
-from tensorflow.keras.models import load_model
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from tensorflow.keras.applications import VGG16
@@ -21,21 +20,10 @@ warnings.filterwarnings('ignore')
 
 class LeafDiseaseDetection:
     @staticmethod
-    def load_model():
-        try:
-            model = VGG16(weights = None)
-            model.load_weights('model.h5')
-            #model = load_model('model.h5')
-            return model
-        except FileNotFoundError:
-            st.error("Model file not found.")
-            return None
-        except Exception as e:
-            st.error(f"Error loading the model: {e}")
-            return None
-        # with open('Leaf_disease_detection.pkl', 'rb') as file:
-        #     model = pickle.load(file)
-        # return model
+    def load_model1():
+        with open('Leaf_disease_detection.pkl', 'rb') as file:
+            model = pickle.load(file)
+        return model
 
     @staticmethod
     def predict_image(model, path):
@@ -47,9 +35,8 @@ class LeafDiseaseDetection:
 
     @staticmethod
     def testing(path):
-        model = LeafDiseaseDetection.load_model()
-        if model is None:
-            return
+        model = LeafDiseaseDetection.load_model1()
+        
         result = LeafDiseaseDetection.predict_image(model, path)
         
         labels = ['Apple___Apple_scab', 'Apple___Black_rot', 'Apple___Cedar_apple_rust', 'Apple___healthy',
