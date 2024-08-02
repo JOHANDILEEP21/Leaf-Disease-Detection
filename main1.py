@@ -21,9 +21,19 @@ warnings.filterwarnings('ignore')
 class LeafDiseaseDetection:
     @staticmethod
     def load_model():
-        with open('Leaf_disease_detection.pkl', 'rb') as file:
-            model = pickle.load(file)
-        return model
+        try:
+            with open('Leaf_disease_detection.pkl', 'rb') as file:
+                model = pickle.load(file)
+            return model
+        except FileNotFoundError:
+            st.error("Model file not found.")
+            return None
+        except Exception as e:
+            st.error(f"Error loading the model: {e}")
+            return None
+        # with open('Leaf_disease_detection.pkl', 'rb') as file:
+        #     model = pickle.load(file)
+        # return model
 
     @staticmethod
     def predict_image(model, path):
